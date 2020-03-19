@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Register</h1>
-    <p>Avi is מלך</p>
+    <p>shlomi is מלך</p>
   </div>
 </template>
 
