@@ -11,8 +11,8 @@ const db ={}
 //     config.db.options
 // )
 
-const sequelize = new Sequelize('littlewe_achva', 'littlewe_achva', 'Achva123!@#',{
-    host: '192.116.71.77',
+const sequelize = new Sequelize('3MgvFICclt', '3MgvFICclt', 'eJiCoKDjMz',{
+    host: 'remotemysql.com',
     dialect: 'mysql'
     });
 
