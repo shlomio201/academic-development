@@ -2,16 +2,27 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
+const {sequelize} = require('./models')
+const config = require ('./config/config')
+
 
 const app = express()
 app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.post('/register' , (req , res) => {
-    res.send({
-        message: `hello ${(req.body.email === req.body.password ? req.body.email : 'avi')}, your name is registered!`
-    })
-})
+require('./routes')(app)
 
-app.listen(process.env.PORT || 8081)
+// try {
+//     await sequelize.authenticate();
+//     console.log('Connection has been established successfully.');
+//   } catch (error) {
+//     console.error('Unable to connect to the database:', error);
+//   }
+
+
+sequelize.sync()
+    .then(() => {
+        app.listen(config.port)
+        console.log(`Server Started on port ${config.port}`)
+})
